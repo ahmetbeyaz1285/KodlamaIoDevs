@@ -1,0 +1,17 @@
+package kodlamaIo.devs.businnes.abstracts;
+
+import java.util.List;
+
+import kodlamaIo.devs.entities.TechnologyLanguage;
+
+public interface TechnologyLanguageService {
+	
+	void add(TechnologyLanguage technologyLanguage);
+	void update(TechnologyLanguage technologyLanguage,int id);
+	void delete(int id);
+	
+	List<TechnologyLanguage> getAll();
+	TechnologyLanguage findById(int id);
+	
+
+}

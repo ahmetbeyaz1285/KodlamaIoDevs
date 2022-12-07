@@ -1,0 +1,21 @@
+package kodlamaIo.devs.businnes.abstracts;
+
+import java.util.List;
+
+import kodlamaIo.devs.businnes.requests.technologylanguagerequests.CreateTechnologyLanguageRequest;
+import kodlamaIo.devs.businnes.requests.technologylanguagerequests.DeleteTechnologyLanguageRequest;
+import kodlamaIo.devs.businnes.requests.technologylanguagerequests.UpdateTechnologyLanguageRequest;
+import kodlamaIo.devs.businnes.responses.technologylanguageresponse.GetAllTechnologyResponse;
+import kodlamaIo.devs.businnes.responses.technologylanguageresponse.GetTechnologyLanguageById;
+
+public interface TechnologyLanguageService {
+	
+	void add(CreateTechnologyLanguageRequest createTechnologyLanguageRequest);
+	void update(UpdateTechnologyLanguageRequest updateTechnologyLanguageRequest);
+	void delete(DeleteTechnologyLanguageRequest deleteTechnologyLanguageRequest);
+	
+	List<GetAllTechnologyResponse> getAll();
+	GetTechnologyLanguageById findById(int id);
+	
+
+}

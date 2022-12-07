@@ -1,0 +1,5 @@
+package kodlamaIo.devs.businnes.validation.concretes;
+
+public class ValidationManager {
+
+}

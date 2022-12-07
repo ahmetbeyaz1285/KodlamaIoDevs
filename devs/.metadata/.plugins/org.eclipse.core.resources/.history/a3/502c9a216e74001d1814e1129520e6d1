@@ -1,0 +1,53 @@
+package kodlamaIo.devs.webApi;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import kodlamaIo.devs.businnes.abstracts.TechnologyLanguageService;
+import kodlamaIo.devs.entities.TechnologyLanguage;
+
+@RestController
+@RequestMapping("/api/technologieslanguage")
+public class TechnologiesLanguageController {
+	
+	@Autowired
+	private TechnologyLanguageService  technologyLanguageService;
+	
+	
+	@PostMapping("/add")
+	public void add( @RequestBody() TechnologyLanguage technologyLanguage) {
+		this.technologyLanguageService.add(technologyLanguage);
+		
+	}
+	
+	@PutMapping("/update")
+	public void update(@RequestBody() TechnologyLanguage technologyLanguage) {
+		this.technologyLanguageService.update(technologyLanguage);
+	}
+	@DeleteMapping("/delete")
+	public void delete(int id) {
+		this.technologyLanguageService.delete(id);
+	}
+	
+	@GetMapping("/getAll")
+	public List<TechnologyLanguage>  getAll(){
+		
+	return	this.technologyLanguageService.getAll();
+	}
+	
+	@GetMapping("/findById")
+	public TechnologyLanguage  findById(int id) {
+		
+		return this.technologyLanguageService.findById(id);
+	}
+	
+
+}

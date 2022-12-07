@@ -1,0 +1,10 @@
+package kodlamaIo.devs.businnes.validation.abstracts;
+
+public interface ValidationService {
+	
+	boolean  isValidNameExist();
+	
+	
+	
+
+}

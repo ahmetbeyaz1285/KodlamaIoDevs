@@ -1,0 +1,5 @@
+package kodlamaIo.devs.businnes.responses.programminglanguageresponse;
+
+public class GetProgrammingLanguageById {
+
+}

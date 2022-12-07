@@ -1,0 +1,57 @@
+package kodlamaIo.devs.webApi;
+
+import java.util.List;
+
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import kodlamaIo.devs.businnes.abstracts.ProgrammingLanguageService;
+import kodlamaIo.devs.entities.ProgrammingLanguage;
+
+@RestController
+@RequestMapping("/api/languages")
+public class ProgrammingLanguagesController {
+	
+	private ProgrammingLanguageService programmingLanguageService;
+
+	public ProgrammingLanguagesController(ProgrammingLanguageService programmingLanguageService) {
+		super();
+		this.programmingLanguageService = programmingLanguageService;
+	}
+	
+	@PostMapping("/add")
+	public void add( @RequestBody() ProgrammingLanguage programmingLanguage) {
+		
+		this.programmingLanguageService.add(programmingLanguage);
+	}
+	
+	@GetMapping("/getAll")
+	public List<ProgrammingLanguage> getAll() {
+		
+		return this.programmingLanguageService.getAll();
+	}
+	
+	@PutMapping("/update")
+	public void update( @RequestBody() ProgrammingLanguage programmingLanguage) {
+		this.programmingLanguageService.update(programmingLanguage);
+	}
+	
+	
+	@DeleteMapping("/delete")
+	public void delette(int id) {
+		this.programmingLanguageService.delete(id);
+	}
+	
+	@GetMapping("/getById")
+	public ProgrammingLanguage findById(int id) {
+		
+		return this.programmingLanguageService.getById(id);
+	
+	}
+
+}

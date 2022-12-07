@@ -1,0 +1,24 @@
+package kodlamaIo.devs.businnes.abstracts;
+
+import java.util.List;
+
+import kodlamaIo.devs.businnes.requests.programminglanguagerequests.CreateProgrammingLanguageRequest;
+import kodlamaIo.devs.businnes.requests.programminglanguagerequests.DeleteProgrammingLanguageRequest;
+import kodlamaIo.devs.businnes.requests.programminglanguagerequests.UpdateProgrammingLanguageRequest;
+import kodlamaIo.devs.businnes.responses.programminglanguageresponse.GetAllProgrammingLanguageResponse;
+import kodlamaIo.devs.businnes.responses.programminglanguageresponse.GetProgrammingLanguageById;
+
+public interface ProgrammingLanguageService {
+	
+	void add(CreateProgrammingLanguageRequest createProgrammingLanguageRequest);
+	
+	void update(UpdateProgrammingLanguageRequest updateProgrammingLanguageRequest);
+	
+	void delete(DeleteProgrammingLanguageRequest deleteProgrammingLanguageRequest);
+	
+	List<GetAllProgrammingLanguageResponse> getAll();
+	
+	GetProgrammingLanguageById findById(int id);
+	
+
+}

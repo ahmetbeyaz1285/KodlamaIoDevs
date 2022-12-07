@@ -1,0 +1,19 @@
+package kodlamaIo.devs.businnes.requests.programminglanguagerequests;
+
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+public class CreateProgrammingLanguageRequest {
+	
+	@NotBlank
+	@NotNull(message = "isim alani bos olamaz")
+	private String name;
+
+}

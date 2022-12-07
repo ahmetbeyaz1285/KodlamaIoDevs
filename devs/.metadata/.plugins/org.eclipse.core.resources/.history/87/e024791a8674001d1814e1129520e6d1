@@ -1,0 +1,13 @@
+package kodlamaIo.devs.businnes.validation.concretes;
+
+import kodlamaIo.devs.businnes.validation.abstracts.ValidationService;
+
+public class ValidationManager implements ValidationService {
+
+	@Override
+	public boolean isValidNameExist(String name) {
+		  if()
+		return false;
+	}
+
+}

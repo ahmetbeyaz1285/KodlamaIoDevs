@@ -1,0 +1,5 @@
+package kodlamaIo.devs.businnes.abstracts;
+
+public interface ProgrammingLanguageService {
+
+}

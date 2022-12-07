@@ -1,0 +1,22 @@
+package kodlamaIo.devs.entities;
+
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+@Entity
+@Table(name = "technologies_language")
+public class TechnologyLanguage {
+	
+	
+	private int id;
+	
+	private String name;
+
+}

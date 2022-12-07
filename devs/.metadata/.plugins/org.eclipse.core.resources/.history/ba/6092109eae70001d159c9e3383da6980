@@ -1,0 +1,13 @@
+package kodlamaIo.devs.businnes.abstracts;
+
+import java.util.List;
+
+import kodlamaIo.devs.entities.ProgrammingLanguage;
+
+public interface ProgrammingLanguageService {
+	
+	void add(ProgrammingLanguage programmingLanguage);
+	
+	List<ProgrammingLanguage> getAll();
+
+}

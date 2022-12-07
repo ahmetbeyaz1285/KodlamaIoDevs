@@ -1,0 +1,100 @@
+package kodlamaIo.devs.businnes.concretes;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import kodlamaIo.devs.businnes.abstracts.ProgrammingLanguageService;
+import kodlamaIo.devs.businnes.requests.programminglanguagerequests.CreateProgrammingLanguageRequest;
+import kodlamaIo.devs.businnes.requests.programminglanguagerequests.DeleteProgrammingLanguageRequest;
+import kodlamaIo.devs.businnes.requests.programminglanguagerequests.UpdateProgrammingLanguageRequest;
+import kodlamaIo.devs.businnes.responses.programminglanguageresponse.GetAllProgrammingLanguageResponse;
+import kodlamaIo.devs.businnes.responses.programminglanguageresponse.GetProgrammingLanguageById;
+import kodlamaIo.devs.dataAcces.ProgrammingLanguageRepository;
+import kodlamaIo.devs.entities.ProgrammingLanguage;
+
+@Service
+public class ProgrammingLanguageManager implements ProgrammingLanguageService {
+	
+	@Autowired
+	ProgrammingLanguageRepository programmingLanguageRepository;
+	
+	
+
+	@Override
+	public void add(CreateProgrammingLanguageRequest createProgrammingLanguageRequest) {
+		
+		  ProgrammingLanguage programmingLanguage=new ProgrammingLanguage();
+		  programmingLanguage.setName(createProgrammingLanguageRequest.getName());
+		  
+		  this.programmingLanguageRepository.save(programmingLanguage);
+	}
+
+
+
+	@Override
+	public List<GetAllProgrammingLanguageResponse> getAll() {
+	
+		List<ProgrammingLanguage>  programmingLanguages=programmingLanguageRepository.findAll();
+		List<GetAllProgrammingLanguageResponse>  getAllProgrammingLanguageResponses=new ArrayList<>();
+		
+		for(ProgrammingLanguage programmingLanguage:programmingLanguages) {
+			GetAllProgrammingLanguageResponse responseItem=new GetAllProgrammingLanguageResponse();
+			responseItem.setId(programmingLanguage.getId());
+			responseItem.setName(programmingLanguage.getName());
+			
+			getAllProgrammingLanguageResponses.add(responseItem);
+		}
+		
+	return getAllProgrammingLanguageResponses;
+	      
+	  
+	   
+	}
+
+
+
+	@Override
+	public void update(UpdateProgrammingLanguageRequest updateProgrammingLanguageRequest) {
+		
+		ProgrammingLanguage programmingLanguage=new ProgrammingLanguage();
+		programmingLanguage.setId(updateProgrammingLanguageRequest.getId());
+		programmingLanguage.setName(updateProgrammingLanguageRequest.getName());
+		
+		this.programmingLanguageRepository.save(programmingLanguage);
+		
+		
+	}
+
+
+
+	@Override
+	public void delete(DeleteProgrammingLanguageRequest deleteProgrammingLanguageRequest) {
+		ProgrammingLanguage programmingLanguage=new ProgrammingLanguage();
+		programmingLanguage.setId(deleteProgrammingLanguageRequest.getId());
+		
+		this.programmingLanguageRepository.delete(programmingLanguage);
+		
+		
+	}
+
+
+
+	@Override
+	public GetProgrammingLanguageById findById( int id) {
+		
+	  ProgrammingLanguage programmingLanguage=new ProgrammingLanguage();
+	  GetProgrammingLanguageById getProgrammingLanguageById=new GetProgrammingLanguageById();
+	   
+	   getProgrammingLanguageById.setId(programmingLanguage.getId());
+	   
+	   return getProgrammingLanguageById;
+	  
+	  
+	  
+		
+	}
+
+}

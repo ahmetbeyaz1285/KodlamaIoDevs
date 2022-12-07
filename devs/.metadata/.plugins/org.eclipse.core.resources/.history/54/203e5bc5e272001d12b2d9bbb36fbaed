@@ -1,0 +1,9 @@
+package kodlamaIo.devs.dataAcces;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import kodlamaIo.devs.entities.TechnologyLanguage;
+
+public interface TechnologyLanguageRepository  extends JpaRepository<TechnologyLanguage, Integer> {
+
+}

@@ -1,0 +1,5 @@
+package kodlamaIo.devs.core.utilities.results;
+
+public class ErrorDataResult {
+
+}

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename type &apos;kodlamaIo.devs.entities.programmingLanguage&apos; to &apos;ProgrammingLanguage&apos;&#x0D;&#x0A;- Original project: &apos;devs&apos;&#x0D;&#x0A;- Original element: &apos;kodlamaIo.devs.entities.programmingLanguage&apos;&#x0D;&#x0A;- Renamed element: &apos;kodlamaIo.devs.entities.ProgrammingLanguage&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" description="Rename type &apos;programmingLanguage&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.type" input="/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;kodlamaIo.devs.entities{programmingLanguage.java[programmingLanguage" matchStrategy="1" name="ProgrammingLanguage" qualified="false" references="true" similarDeclarations="false" stamp="1669810965671" textual="false" version="1.0"/>
+</session>

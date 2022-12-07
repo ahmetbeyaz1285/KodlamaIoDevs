@@ -1,0 +1,5 @@
+package kodlamaIo.devs.businnes.requests.programminglanguagerequests;
+
+public class CreateProgrammingLanguageRequest {
+
+}

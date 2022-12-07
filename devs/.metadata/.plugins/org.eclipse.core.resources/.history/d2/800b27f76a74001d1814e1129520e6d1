@@ -1,0 +1,5 @@
+package kodlamaIo.devs.businnes.responses.technologylanguageresponse;
+
+public class GetTechnologyLanguageById {
+
+}

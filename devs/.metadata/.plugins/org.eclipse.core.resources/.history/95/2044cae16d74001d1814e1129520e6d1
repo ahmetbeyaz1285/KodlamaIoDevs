@@ -1,0 +1,48 @@
+package kodlamaIo.devs.businnes.concretes;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import kodlamaIo.devs.businnes.abstracts.TechnologyLanguageService;
+import kodlamaIo.devs.dataAcces.TechnologyLanguageRepository;
+import kodlamaIo.devs.entities.TechnologyLanguage;
+
+@Service
+public class TechnologyLanguageManager implements TechnologyLanguageService {
+	
+	@Autowired
+	private TechnologyLanguageRepository technologyLanguageRepository;
+
+	@Override
+	public void add(TechnologyLanguage technologyLanguage) {
+		this.technologyLanguageRepository.save(technologyLanguage);
+		
+	}
+
+	@Override
+	public void update(TechnologyLanguage technologyLanguage) {
+		this.technologyLanguageRepository.save(technologyLanguage);
+		
+	}
+
+	@Override
+	public void delete(int id) {
+		this.technologyLanguageRepository.deleteById(id);
+		
+	}
+
+	@Override
+	public List<TechnologyLanguage> getAll() {
+		// 
+		return this.technologyLanguageRepository.findAll();
+	}
+
+	@Override
+	public TechnologyLanguage findById(int id) {
+		// TODO Auto-generated method stub
+		return this.technologyLanguageRepository.findById(id);
+	}
+
+}

@@ -1,0 +1,110 @@
+package kodlamaIo.devs.businnes.concretes;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import kodlamaIo.devs.businnes.abstracts.TechnologyLanguageService;
+import kodlamaIo.devs.businnes.requests.technologylanguagerequests.CreateTechnologyLanguageRequest;
+import kodlamaIo.devs.businnes.requests.technologylanguagerequests.DeleteTechnologyLanguageRequest;
+import kodlamaIo.devs.businnes.requests.technologylanguagerequests.UpdateTechnologyLanguageRequest;
+import kodlamaIo.devs.businnes.responses.programminglanguageresponse.GetAllProgrammingLanguageResponse;
+import kodlamaIo.devs.businnes.responses.technologylanguageresponse.GetAllTechnologyResponse;
+import kodlamaIo.devs.businnes.responses.technologylanguageresponse.GetTechnologyLanguageById;
+import kodlamaIo.devs.dataAcces.ProgrammingLanguageRepository;
+import kodlamaIo.devs.dataAcces.TechnologyLanguageRepository;
+import kodlamaIo.devs.entities.ProgrammingLanguage;
+import kodlamaIo.devs.entities.TechnologyLanguage;
+
+@Service
+public class TechnologyLanguageManager implements TechnologyLanguageService {
+	
+	@Autowired
+	private TechnologyLanguageRepository technologyLanguageRepository;
+	
+	@Autowired
+	private ProgrammingLanguageRepository programmingLanguageRepository;
+	
+
+	@Override
+	public void add(CreateTechnologyLanguageRequest createTechnologyLanguageRequest) {
+		TechnologyLanguage technologyLanguage=new TechnologyLanguage();
+		ProgrammingLanguage programmingLanguage=
+				programmingLanguageRepository.findById
+				(createTechnologyLanguageRequest.getProgrammingLanguageId());
+		
+		technologyLanguage.setName(createTechnologyLanguageRequest.getName());
+		technologyLanguage.setProgrammingLanguage(programmingLanguage);
+		
+		
+		
+		this.technologyLanguageRepository.save(technologyLanguage);
+		
+	}
+
+	@Override
+	public void update(UpdateTechnologyLanguageRequest updateTechnologyLanguageRequest) {
+		TechnologyLanguage technologyLanguage=new TechnologyLanguage();
+		technologyLanguage.setId(updateTechnologyLanguageRequest.getId());
+		technologyLanguage.setName(updateTechnologyLanguageRequest.getName());
+		
+		this.technologyLanguageRepository.save(technologyLanguage);
+		
+	}
+
+	@Override
+	public void delete(DeleteTechnologyLanguageRequest deleteTechnologyLanguageRequest) {
+		TechnologyLanguage technologyLanguage =new TechnologyLanguage();
+		technologyLanguage.setId(deleteTechnologyLanguageRequest.getId());
+		
+		this.technologyLanguageRepository.delete(technologyLanguage);
+		
+	}
+
+	@Override
+	public List<GetAllTechnologyResponse> getAll() {
+		
+		List<TechnologyLanguage>  technologyLanguages=technologyLanguageRepository.findAll();
+		List<GetAllTechnologyResponse> getAllTechnologyResponses=new ArrayList<>();
+		
+		for(TechnologyLanguage technologyLanguage:technologyLanguages) {
+			GetAllTechnologyResponse technologyItem=new GetAllTechnologyResponse();
+			GetAllProgrammingLanguageResponse languageItem=new GetAllProgrammingLanguageResponse();
+			technologyItem.setId(technologyLanguage.getId());
+			technologyItem.setName(technologyLanguage.getName());
+			
+			technologyItem.setProgrammingLanguageId(languageItem.getId());
+			technologyItem.setProgrammingLanguageName(languageItem.getName());
+			
+			
+             getAllTechnologyResponses.add(technologyItem);			
+			
+		}
+		
+		return getAllTechnologyResponses;
+		
+		
+	}
+
+	@Override
+	public GetTechnologyLanguageById findById(int id) {
+		
+		TechnologyLanguage technologyLanguage =technologyLanguageRepository.findById(id);
+		GetTechnologyLanguageById technologyLanguageById=new GetTechnologyLanguageById();
+		
+		technologyLanguageById.setId(technologyLanguage.getId());
+		technologyLanguageById.setName(technologyLanguage.getName());
+		
+		
+		technologyLanguageById.setProgrammingLanguageId(technologyLanguage.getProgrammingLanguage().getId());
+		technologyLanguageById.setProgrammingLanguageName(technologyLanguage.getProgrammingLanguage().getName());
+		
+		return technologyLanguageById;
+		
+		
+		
+	}
+
+}
